@@ -7,14 +7,14 @@ uglify = require 'gulp-uglify'
 livereload = require 'gulp-livereload'
 
 gulp.task 'default', ->
-  gulp.src '*.coffee','**/*.coffee'
+  gulp.src ['**/*.coffee', '!node_modules/**']
     .pipe watch()
     .pipe coffee()
     .pipe concat('script.js')
     .pipe uglify()
     .pipe livereload()
 
-  gulp.src '*.stylus','**/*.stylus'
+  gulp.src ['**/*.stylus', '!node_modules/**']
     .pipe watch()
     .pipe stylus()
     .pipe concat('style.css')
