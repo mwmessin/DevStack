@@ -8,7 +8,7 @@ livereload = require 'gulp-livereload'
 
 gulp.task 'default', ->
   gulp.src ['**/*.coffee', '!node_modules/**', '!gulpfile.*']
-    .pipe watch()
+    .pipe watch('**/*.coffee')
     .pipe coffee()
     .pipe concat('script.js')
     .pipe uglify()
@@ -16,7 +16,7 @@ gulp.task 'default', ->
     .pipe livereload()
 
   gulp.src ['**/*.styl', '!node_modules/**']
-    .pipe watch()
+    .pipe watch('**/*.styl')
     .pipe stylus()
     .pipe concat('style.css')
     .pipe gulp.dest('.')
