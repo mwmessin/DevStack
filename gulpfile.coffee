@@ -13,11 +13,15 @@ gulp.task 'default', ->
     .pipe concat('script.js')
     .pipe uglify()
     .pipe gulp.dest('.')
-    .pipe livereload()
+    .pipe livereload({ start: true })
 
   gulp.src ['**/*.styl', '!node_modules/**']
     .pipe watch('**/*.styl')
     .pipe stylus()
     .pipe concat('style.css')
     .pipe gulp.dest('.')
-    .pipe livereload()
+    .pipe livereload({ start: true })
+
+  gulp.src ['*.html']
+    .pipe watch('*.html')
+    .pipe livereload({ start: true })
